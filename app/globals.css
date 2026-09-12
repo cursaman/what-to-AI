@@ -284,3 +284,14 @@ h3 { font-size: 15px; line-height: 1.6; font-weight: 550; letter-spacing: -.2px;
   .search-dialog { margin-top: 75px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
+
+/* Beginner journey and reference tables */
+.journey-section,.basics-section{margin:32px 0 40px;scroll-margin-top:32px}
+.journey-grid{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.journey-grid li{min-width:0}.journey-grid a{display:flex;gap:12px;height:100%;padding:18px;border:1px solid var(--line);border-radius:12px;background:var(--surface);text-decoration:none;color:var(--ink)}
+.journey-grid a:hover{border-color:var(--accent);background:var(--hover)}.journey-grid a>svg{flex-shrink:0;margin-left:auto;color:var(--muted)}
+.step-number{font-size:12px;font-weight:600;color:var(--accent-text);padding-top:3px}.journey-grid h3{font-size:14px;margin:0 0 7px}.journey-grid p{font-size:13px;color:var(--body);line-height:1.7;margin:0 0 12px}.journey-result{display:block;font-size:11px;color:var(--muted);line-height:1.6}
+.basics-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border:1px solid var(--line);border-radius:12px;overflow:hidden}.basics-grid>div{padding:18px}.basics-grid dt{font-size:14px;font-weight:600}.basics-grid dd{margin:8px 0 0;color:var(--body);font-size:13px;line-height:1.8}
+.step-result{display:flex;flex-direction:column;gap:8px;padding:18px 20px;border-left:3px solid var(--accent);background:var(--accent-soft);border-radius:0 10px 10px 0;margin:24px 0}.step-result span{font-size:12px;color:var(--muted)}.step-result strong{font-size:15px}
+.table-scroll{max-width:100%;overflow-x:auto;margin:24px 0;border:1px solid var(--line);border-radius:12px}.guide-table{width:100%;border-collapse:collapse;font-size:13px;line-height:1.8;min-width:520px}.guide-table caption{text-align:left;font-weight:600;padding:16px;background:var(--surface);color:var(--ink)}.guide-table th,.guide-table td{text-align:left;vertical-align:top;padding:12px 16px;border-top:1px solid var(--line)}.guide-table th{font-weight:600;background:var(--hover)}.guide-table td{color:var(--body)}.guide-table td:first-child{font-weight:500;color:var(--ink);width:23%}
+@media(max-width:760px){.journey-grid,.basics-grid{grid-template-columns:1fr}.journey-grid a{padding:16px}.journey-section,.basics-section{margin:26px 0 32px}}

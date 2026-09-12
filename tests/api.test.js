@@ -56,11 +56,20 @@ test('all five prompt types produce their own instructions and supplied context'
 });
 test('guide search covers content and category; missing guides return 404', async () => {
   const all = await (await search(new Request('http://localhost/api/guides'))).json();
-  assert.equal(all.total, 7);
+  assert.equal(all.total, 12);
   const result = await (await search(new Request('http://localhost/api/guides?' + new URLSearchParams({ q: '민감한 데이터', category: 'AI와 함께 개발하기' })))).json();
   assert.ok(result.items.some(g => g.id === 'prompt'));
   assert.equal((await search(new Request('http://localhost/api/guides?category=invalid'))).status, 422);
   assert.equal((await detail(new Request('http://localhost'), { params: Promise.resolve({ id: 'unknown' }) })).status, 404);
   const found = await detail(new Request('http://localhost'), { params: Promise.resolve({ id: 'principles' }) });
   assert.equal((await found.json()).sections.length, 3);
+});
+
+test('technical glossary is searchable and copied with the full guide', async () => {
+  const { getGuide, listGuides, guideMarkdown } = await import('../lib/catalog.js');
+  assert.ok(listGuides('데이터베이스', '개발 8단계').some(g => g.id === 'tech-spec'));
+  const guide = getGuide('tech-spec'), markdown = guideMarkdown(guide);
+  assert.ok(markdown.includes('| 항목 | 쉬운 뜻'));
+  assert.ok(markdown.includes(guide.template));
+  assert.ok(markdown.includes(guide.sections[0][1]));
 });

@@ -4,11 +4,12 @@ import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Icon from './icon.jsx';
 import SearchDialog from './search-dialog.jsx';
+import { steps } from '../lib/journey.js';
 
 const groups = [
-  ['시작하기', [['/', '⌂', '가이드 둘러보기'], ['/guides/principles', '◇', '개발 기본 원칙']]],
-  ['개발 워크플로', [['/guides/planning', '01', '기획과 설계'], ['/guides/code', '02', '코드 작성'], ['/guides/review', '03', '테스트와 리뷰'], ['/guides/deploy', '04', '배포와 운영']]],
-  ['AI와 함께 개발하기', [['/guides/ai', '✳', 'AI 협업 가이드'], ['/guides/prompt', '▧', '프롬프트 작성법']]],
+  ['처음 시작하기', [['/', '⌂', '시작 안내'], ['/guides/principles', '◇', '개발 흐름 한눈에'], ['/guides/review', '✓', '완료 확인하는 법']]],
+  ['개발 8단계', steps.map(step => [`/guides/${step.id}`, String(step.number).padStart(2, '0'), step.title])],
+  ['AI와 함께 개발하기', [['/guides/ai', '✳', 'AI와 단계별로 작업하기'], ['/guides/prompt', '▧', 'AI에게 요청문 쓰기']]],
   ['개발 도구', [['/builder', '＋', '프로젝트 지침 생성'], ['/templates', '▧', '상황별 요청 템플릿']]],
 ];
 const entries = groups.flatMap(([, items]) => items);

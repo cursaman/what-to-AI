@@ -1,6 +1,6 @@
 # what-to-AI
 
-Next.js App Router 기반 한국어 개발 지침서. React 화면과 Node.js Route Handler를 사용하며, 서버에서 입력을 검증하고 Markdown 지침과 요청문을 생성합니다.
+기획부터 배포까지 8단계로 따라가는 초보자용 한국어 개발 가이드. Next.js App Router 기반입니다. React 화면과 Node.js Route Handler를 사용하며, 서버에서 입력을 검증하고 Markdown 지침과 요청문을 생성합니다.
 
 ## 실행
 
@@ -23,8 +23,8 @@ npm start
 
 ## 화면
 
-- `/`: 문서 검색과 분류 필터
-- `/guides/[id]`: 서버에서 렌더링하는 7개 가이드, 목차와 복사
+- `/`: 개발 8단계, 쉬운 기술 용어, 문서 검색과 분류 필터
+- `/guides/[id]`: 서버에서 렌더링하는 12개 가이드, 기술 용어표·계획표, 목차와 전체 문서 복사
 - `/builder`: 프로젝트별 지침 생성
 - `/templates`: 기능 추가·버그 수정·리팩터링·코드 리뷰·배포 점검 요청 작성
 
